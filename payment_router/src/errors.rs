@@ -115,4 +115,10 @@ pub enum Error {
     ReentrantCall = 42,
     /// A multi-hop swap path contains the same asset more than once.
     CyclicSwapPath = 48,
+    /// The DEX settled or reported an output asset other than the requested asset.
+    AssetMismatch = 49,
+    /// A signed maker quote was submitted after its expiration timestamp.
+    QuoteExpired = 50,
+    /// A signed maker quote has already been settled.
+    QuoteAlreadyUsed = 51,
 }
