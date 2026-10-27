@@ -140,3 +140,20 @@ impl Error {
     pub const NotCouncilSigner: Self = Self::Unauthorized;
     pub const DmsTier2NotEligible: Self = Self::InvalidDmsConfig;
 }
+
+impl Error {
+    // Keep contracterror within Soroban's 50-case XDR limit while providing
+    // specific names at call sites for errors that share an existing code.
+    #[allow(non_upper_case_globals)]
+    pub const QuoteExpired: Self = Self::SwapDeadlineExpired;
+    #[allow(non_upper_case_globals)]
+    pub const QuoteAlreadyUsed: Self = Self::InvalidNonce;
+    #[allow(non_upper_case_globals)]
+    pub const AssetMismatch: Self = Self::InvalidSwapPath;
+    #[allow(non_upper_case_globals)]
+    pub const DmsClaimPending: Self = Self::TimelockPending;
+    #[allow(non_upper_case_globals)]
+    pub const DmsGracePeriodActive: Self = Self::TimelockNotReady;
+    #[allow(non_upper_case_globals)]
+    pub const NotCouncilSigner: Self = Self::NotMultisigSigner;
+}
